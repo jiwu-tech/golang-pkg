@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"github.com/jiwu-tech/golang-pkg/path"
+
 	rotatelogs "github.com/lestrrat/go-file-rotatelogs"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -16,10 +16,7 @@ var errorLogger *zap.SugaredLogger
 func Init(filename string){
 	//是否创建目录
 	filepath := "./logs/"
-	exist, _ := path.PathExists(filepath)
-	if !exist {
-		_ = os.Mkdir(filepath, os.ModePerm)
-	}
+
 	// 设置一些基本日志格式 具体含义还比较好理解，直接看zap源码也不难懂
 	encoder := zapcore.NewConsoleEncoder(zapcore.EncoderConfig{
 		MessageKey:  "msg",
