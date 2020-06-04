@@ -15,6 +15,7 @@ var errorLogger *zap.SugaredLogger
 
 func Init(filename string){
 	//是否创建目录
+	//filename := config.AppConfig.Server.Name
 	filepath := "./logs/"
 	exist, _ := path.PathExists(filepath)
 	if !exist {
